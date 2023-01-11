@@ -1,6 +1,7 @@
 package com.example.quizzapp
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -15,12 +16,16 @@ import kotlinx.android.synthetic.main.activity_quiz_question.*
 import kotlin.math.log
 
 class QuizQuestionActivity : AppCompatActivity(), OnClickListener {
+    var score = 0
     var currentIndex = 1
     val listQuestion = Constants.getListQuestion()
     var selectedOption = 0
+    var nameUser: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_question)
+        nameUser = intent.getStringExtra(Constants.USER_NAME).toString()
+        Log.i("baott", "onCreate: $nameUser")
         setQuestion()
 
     }
@@ -139,7 +144,14 @@ class QuizQuestionActivity : AppCompatActivity(), OnClickListener {
                                 setQuestion()
                             }
                             else -> {
-                                Toast.makeText(this, "You have successfully completed the quiz.", Toast.LENGTH_SHORT).show()
+
+                                val intent = Intent(this, ResultActivity::class.java)
+                                intent.putExtra(Constants.USER_NAME,nameUser)
+                                intent.putExtra(Constants.TOTAL_SCORE,score)
+                                Log.i("baott", "submit: $nameUser")
+
+                                startActivity(intent)
+                                finish()
                             }
                         }
 
@@ -147,8 +159,9 @@ class QuizQuestionActivity : AppCompatActivity(), OnClickListener {
                         val question = listQuestion[currentIndex-1]
                         if(question.answer != selectedOption ) {
                             answerView(selectedOption, R.drawable.wrong_option_border)
+                        } else {
+                            ++score
                         }
-
                         answerView(question.answer, R.drawable.correct_option_border)
 
                         if(currentIndex == 9) {

@@ -3,6 +3,10 @@ package com.example.quizzapp
 import java.util.ArrayList
 
 object Constants {
+
+    var USER_NAME: String = "UserName"
+    var TOTAL_SCORE: String = "totalScore"
+
     fun getListQuestion(): ArrayList<Question> {
         val questionsList = ArrayList<Question>()
         val que1 = Question(
