@@ -8,18 +8,18 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 
 class DrawingView(context: Context, attributes: AttributeSet) : View(context, attributes) {
-
     private var mDrawPath: CustomPath? = null
     private var mCanvasBitmap: Bitmap? = null
     private var mDrawPaint: Paint? = null
     private var mCanvasPaint: Paint? = null
     private var mBrushSize: Float = 0.toFloat()
-    private var color: Int = Color.BLACK
+    private var color  = Color.BLACK
     private var canvas: Canvas? = null
     private val mPaths = ArrayList<CustomPath>()
 
@@ -66,6 +66,9 @@ class DrawingView(context: Context, attributes: AttributeSet) : View(context, at
         val touchX = event?.x
         val touchY = event?.y
         when (event?.action) {
+            MotionEvent.ACTION_BUTTON_PRESS -> {
+             Log.i("BaoTT", "draw a dot")
+            }
             MotionEvent.ACTION_DOWN -> {
                 mDrawPath!!.color = color
                 mDrawPath!!.brushThickness = mBrushSize
@@ -99,5 +102,10 @@ class DrawingView(context: Context, attributes: AttributeSet) : View(context, at
     internal inner class CustomPath(var color: Int, var brushThickness: Float) : Path() {
 
 
+    }
+
+    fun setColor(newColor: String) {
+        color = Color.parseColor(newColor)
+        mDrawPaint!!.color = color
     }
 }
