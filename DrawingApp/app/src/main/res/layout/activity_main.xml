@@ -22,12 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="image"
-            android:scaleType="centerCrop" />
+            android:scaleType="fitXY" />
         <com.example.drawingapp.DrawingView
             android:id="@+id/drawingView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
             android:background="#80FFFFFF"
             />
     </FrameLayout>
@@ -56,7 +55,6 @@
 
         <ImageButton
             android:layout_width="25dp"
-
             android:layout_height="25dp"
             android:layout_margin="2dp"
             android:background="@color/red"
@@ -124,18 +122,36 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:backgroundTint="#57000000"
+            android:backgroundTint="#25000000"
             android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_brush_24"
+            />
+        <ImageButton
+            android:id="@+id/ib_undo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:backgroundTint="#25000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_undo_24"
             />
         <ImageButton
             android:id="@+id/ib_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:backgroundTint="#57000000"
+            android:backgroundTint="#25000000"
             android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_image_24"
+            />
+        <ImageButton
+            android:id="@+id/ib_saved"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:backgroundTint="#25000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_save_alt_24"
             />
     </LinearLayout>
 

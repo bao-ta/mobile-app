@@ -28,6 +28,13 @@ class DrawingView(context: Context, attributes: AttributeSet) : View(context, at
         setUpDrawing()
     }
 
+    public fun unDo() {
+        if(mPaths.size > 0) {
+            mPaths.removeLast()
+            invalidate()
+        }
+    }
+
     private fun setUpDrawing() {
         mDrawPaint = Paint()
         mDrawPath = CustomPath(color, mBrushSize)
@@ -99,10 +106,7 @@ class DrawingView(context: Context, attributes: AttributeSet) : View(context, at
         mDrawPaint!!.strokeWidth = mBrushSize
     }
 
-    internal inner class CustomPath(var color: Int, var brushThickness: Float) : Path() {
-
-
-    }
+    internal inner class CustomPath(var color: Int, var brushThickness: Float) : Path()
 
     fun setColor(newColor: String) {
         color = Color.parseColor(newColor)

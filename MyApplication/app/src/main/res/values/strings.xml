@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Workout</string>
+    <string name="start_image">StartImage</string>
+    <string name="bmi_16_g_y_iii_13_10_16_bmi_17_g_y_ii_13_10_17_bmi_18_5_g_y_i_13_10_18_5_bmi_25_b_nh_th_ng_13_10_25_bmi_30_th_a_c_n_13_10_30_bmi_35_b_o_ph_1_13_10_35_bmi_40_b_o_ph_ii_13_10_bmi_40_b_o_ph_iii">x</string>
+    <string name="start">Start</string>
+    <string name="bmi">BMI</string>
+    <string name="calculate">Calculate</string>
+</resources>
